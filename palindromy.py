@@ -1,6 +1,6 @@
 def czy_palindrom(wyraz):
     """
-    Funkcja sprawdza czy wyraz jest palindromem
+    Sprawdzanie czy wyraz jest palindromem
     
     Argumenty:
         wyraz(str) 
@@ -9,22 +9,29 @@ def czy_palindrom(wyraz):
         wartość boolean
     
     """
-    dlugosc_slowa = len(wyraz)
-    #print(f"Dlugosc slowa = {dlugosc_slowa} {type(dlugosc_slowa)}")
-    for litera in wyraz:
-        dlugosc_slowa = dlugosc_slowa - 1
-        if litera != wyraz[dlugosc_slowa]:
-            return False
-               
-    return True
-            
-            
-wynik = czy_palindrom('kobylamamalybokkobylamamalybokkobylamamalybok')
+    #wszystkie litery zamienione na małe
+    wyraz = wyraz.lower()
 
-print(wynik)
-if wynik == False:
-    print("To nie jest palindrom")
+    #usunięcie spacji z wyrażenia 
+    wyraz = wyraz.replace(" ","")
+
+    #sprawdza czy wyrażenie nie zawiera cyfr
+    if wyraz.isalpha():
+        pass
+    else:
+        wyraz = 'xy'
+
+    return(wyraz == wyraz[::-1])
+            
+
+wyrazenie = 'Kobyla ma maly bok'            
+wynik = czy_palindrom(wyrazenie)
+
+#print(wynik)
+if wynik:
+    print("To jest palindrom")
 else:
-    print("Palindrom to jest")
+    print("To nie jest palindrom")
 
+print(f"\nTo jest wyraz zadany: {wyrazenie}\n")
 #help(czy_palindrom)
