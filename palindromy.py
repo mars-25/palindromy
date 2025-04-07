@@ -1,4 +1,4 @@
-def czy_palindrom(wyraz):
+def czy_palindrom(zdanie):
     """
     Sprawdzanie czy wyraz jest palindromem
     
@@ -9,22 +9,14 @@ def czy_palindrom(wyraz):
         wartość boolean
     
     """
-    #wszystkie litery zamienione na małe
-    wyraz = wyraz.lower()
 
-    #usunięcie spacji z wyrażenia 
-    wyraz = wyraz.replace(" ","")
-
-    #sprawdza czy wyrażenie nie zawiera cyfr
-    if wyraz.isalpha():
-        pass
-    else:
-        wyraz = 'xy'
-
-    return(wyraz == wyraz[::-1])
-            
-
-wyrazenie = 'Kobyla ma maly bok'            
+    znaki =""
+    for znak in zdanie.lower():
+        if znak.isalpha():
+            znaki+=znak
+    return znaki == znaki[::-1] 
+ 
+wyrazenie = 'A man, a plan, a canal:Panama'            
 wynik = czy_palindrom(wyrazenie)
 
 #print(wynik)
